@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EXAMPLE WORKSHOP TITLE</title>
+  <link rel="icon" href="./_assets/images/favicon.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="XAMPLE WORKSHOP TITLE">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/fontawesome.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/brands.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/regular.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/solid.css" />
+  <style>
+    /* Define the font face */
+    @font-face {
+      font-family: '72brand'; /* Choose a suitable font family name */
+      src: local('72brand'), url('./_assets/font/WOFF2/72Brand-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Apply the font to the entire document */
+    body {
+      font-family: '72brand', sans-serif; /* Use the font-family name defined above */
+    }
+
+    .sidebar {
+      width: 20rem;
+    }
+
+    body.close .sidebar {
+    transform:translateX(-20rem)
+}
+    .content {
+      left: 20rem;
+    }
+    .markdown-section {
+      font-size: 20px
+    }
+
+    @media print {
+      h1 {
+        page-break-before: always
+      }
+    }
+
+    img {
+      max-width: 800px;
+      max-height: 700px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  
+  <script>
+    <!-- Function to escape unsafe characters from passwords -->
+    function escape(htmlStr) {
+      return htmlStr.replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
+    }
+    window.$docsify = {
+      name: 'EXAMPLE WORKSHOP TITLE',
+      logo: '/_assets/images/SAP_logo.png',
+      homepage: 'pages/00-home/README.md',
+      loadSidebar: 'pages/agenda.md',
+      autoHeader: false,
+      auto2top: true,
+      subMaxLevel: 3,
+      executeScript: true,
+      search: {
+        paths: 'auto',
+        placeholder: 'Type to search',
+        noData: 'No Results!'
+      },
+      repo: '',
+      themeColor: '#00B9F2',
+      toc: {
+        scope: '.markdown-section',
+        headings: 'h1, h2, h3, h4, h5, h6',
+        title: 'Table of Contents',
+      },
+      'flexible-alerts': {
+        success: {
+          label: "Success",
+          icon: 'fa-solid fa-check'
+        }
+      },
+      plugins: [
+        function (hook, vm) {
+          // you can alter the markdown content and the html result using different hooks at
+          // https://docsify.js.org/#/write-a-plugin?id=lifecycle-hooks
+          hook.beforeEach(async function (markdown, next) {
+            // Invoked on each page load before new markdown is transformed to HTML.
+
+            try {
+              // Replace placeholders
+              // var path = "/api/odata/v4/participant/credentials(workshopId='";
+
+
+              // if (document.documentURI.split('/')[3].match(/website-?([a-zA-Z0-9]{8})?/)[1]) {
+              //   path += document.documentURI.split('/')[3].match(/website-?([a-zA-Z0-9]{8})?/)[1] + "')";
+
+              // } else {
+              //   path += "00000000')";
+              // }
+
+              // const response = await fetch(path);
+              // const data = await response.json();
+              
+              var number = localStorage.getItem('numberID') == null ? 'ZZZ': localStorage.getItem('numberID');
+              var creds = {
+                number: number
+              };
+              markdown = markdown.replace(
+                  /\${([a-zA-Z0-9-]+)(}|\.([a-zA-Z0-9-]+)})/g,
+                  function (full, first, second, third) {
+                    console.log("Replacing: " + full);
+                    if (third) {
+                      try {
+                        return escape(creds[first][third]);
+                      } catch (e) {
+                        return full;
+                      }
+
+                    } else {
+                      try {
+                        return creds[first];
+                      } catch (e) {
+                        return full;
+                      }
+                    }
+                  }
+                );
+            } catch (error) { 
+              console.log(error.message);
+            } finally {
+              next(markdown)
+            }
+          });
+          hook.afterEach(function (html, next) {
+            try {
+              // Make files download-able
+              return (html
+                .replace(/files\/(\S*)"/g, 'files/$1" download="$1"'));
+            } catch (err) {
+              console.log("Problems with the download links");
+            } finally {
+              next(html);
+            }
+          });
+          hook.doneEach(function () {
+            // Called after initial completion. Only trigger once, no arguments
+            // Set complete title
+            document.title += ' - EXAMPLE WORKSHOP TITLE';
+          });
+        },
+      ]
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://unpkg.com/docsify-fontawesome/dist/docsify-fontawesome.min.js"></script>
+  <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <!-- <script src="./_assets/js/cred.js"></script> -->
+</body>
+
+</html>
