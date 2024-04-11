@@ -1,5 +1,5 @@
 - [Home](/)
-- [PDF number warning](pages/01-pdf-number-warning/README.md)
+- [PDF number warning](pages/00-pdf-number-warning/README.md)
 - How to get started
   - [Copying the template to a new repository](pages/01-setting-repository/README.md)
   - [Project structure](pages/04-project-structure/README.md)
@@ -10,7 +10,6 @@
 - For the SAP BTP Adoption team
   - [Dynamic content (numbers, users, passwords)](pages/10-dynamic-content/README.md)
   - [Deployment](pages/11-deployment/README.md)
-  - [Updating the website](pages/12-updating/README.md)
 - Best practices
   - [Writing markdown](pages/20-writing-markdown/README.md)
   - [Writing exercises](pages/21-writing-exercises/README.md)
