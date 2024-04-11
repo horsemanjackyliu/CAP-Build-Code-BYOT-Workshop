@@ -3,10 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>EXAMPLE WORKSHOP TITLE</title>
   <link rel="icon" href="./_assets/images/favicon.png" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="XAMPLE WORKSHOP TITLE">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/buble.css" />
@@ -72,7 +70,7 @@
       name: 'EXAMPLE WORKSHOP TITLE',
       logo: '/_assets/images/SAP_logo.png',
       homepage: 'pages/00-home/README.md',
-      loadSidebar: 'pages/agenda.md',
+      loadSidebar: 'agenda-sidebar.md',
       autoHeader: false,
       auto2top: true,
       subMaxLevel: 3,
@@ -104,23 +102,21 @@
 
             try {
               // Replace placeholders
-              // var path = "/api/odata/v4/participant/credentials(workshopId='";
+              var path = "/api/odata/v4/participant/credentials(workshopId='";
 
 
-              // if (document.documentURI.split('/')[3].match(/website-?([a-zA-Z0-9]{8})?/)[1]) {
-              //   path += document.documentURI.split('/')[3].match(/website-?([a-zA-Z0-9]{8})?/)[1] + "')";
+              if (document.documentURI.split('/')[3].match(/website-?([a-zA-Z0-9]{8})?/)[1]) {
+                path += document.documentURI.split('/')[3].match(/website-?([a-zA-Z0-9]{8})?/)[1] + "')";
 
-              // } else {
-              //   path += "00000000')";
-              // }
+              } else {
+                path += "00000000')";
+              }
 
-              // const response = await fetch(path);
-              // const data = await response.json();
+              const response = await fetch(path);
+              const data = await response.json();
               
-              var number = localStorage.getItem('numberID') == null ? 'ZZZ': localStorage.getItem('numberID');
-              var creds = {
-                number: number
-              };
+              // var number = localStorage.getItem('numberID') == null ? 'ZZZ': localStorage.getItem('numberID');
+              var creds = data;
               markdown = markdown.replace(
                   /\${([a-zA-Z0-9-]+)(}|\.([a-zA-Z0-9-]+)})/g,
                   function (full, first, second, third) {
@@ -161,7 +157,7 @@
           hook.doneEach(function () {
             // Called after initial completion. Only trigger once, no arguments
             // Set complete title
-            document.title += ' - EXAMPLE WORKSHOP TITLE';
+            document.title += ' - ' + window.$docsify.name;
           });
         },
       ]

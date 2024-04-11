@@ -4,3 +4,4 @@ gen/
 mta_archives/
 *.zip
 _assets/files/
+.vscode/
