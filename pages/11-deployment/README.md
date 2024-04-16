@@ -1,6 +1,7 @@
 # Auto deployment
 
-Check with Pedro to set up auto-deployment. This will be a one-time task that will allow you to update the exercise at your convenience and deploy it without any intervention. This is done using the concepts of [branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) and [pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) of git and GitHub.
+> [!ATTENTION]
+> Ask Pedro to deploy the exercise and set up auto-deployment. After that you will be able to update and deploy the exercise by yourself. This is done using the concepts of [branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) and [pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) of git and GitHub.
 
 The flow to update the exercise is the following:
 
