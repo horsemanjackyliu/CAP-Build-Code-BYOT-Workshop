@@ -6,8 +6,8 @@
     "docsify-to-pdf": "0.0.5"
   },
   "scripts": {
-    "convert": "node_modules/.bin/docsify-to-pdf",
-    "zip-folder": "zip -r docisfy-workshop-content.zip . -x './node_modules/*' -x './.git/*' -x './gen/*' -x './mta_archives/*'",
+    "convert": "docsify-to-pdf/.bin/cli.js",
+    "zip-folder": "zip -r docisfy-workshop-content.zip . -x './node_modules/*' -x './docsify-to-pdf/*' -x './.git/*' -x './gen/*' -x './mta_archives/*'",
     "build": "npm run convert && npm run zip-folder"
   },
   "author": "",
