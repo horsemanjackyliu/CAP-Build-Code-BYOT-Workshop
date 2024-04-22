@@ -1,5 +1,5 @@
-- [Home](/)
-- [PDF number warning](pages/00-pdf-number-warning/README.md)
+- [Home](pages/00-home/README.md)
+- [About this document](pages/00-pdf-number-warning/README.md)
 - How to get started
   - [Copying the template to a new repository](pages/01-setting-repository/README.md)
   - [Project structure](pages/04-project-structure/README.md)
