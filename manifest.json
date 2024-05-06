@@ -6,7 +6,7 @@
         "applicationVersion": {
             "version": "1.0.0"
         },
-        "title": "Example workshop title",
+        "title": "BTP CAP Development with SAP Build Code - BYOT",
         "description": ""
     },
     "sap.cloud": {

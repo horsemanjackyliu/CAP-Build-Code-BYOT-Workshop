@@ -1,17 +1,46 @@
-- **EXAMPLE WORKSHOP TITLE**
-- [Home](/)
-- How to get started
-  - [Copying the template to a new repository](pages/01-setting-repository/README.md)
-  - [Project structure](pages/04-project-structure/README.md)
-  - [Writing the content](pages/05-writing-content/README.md)
-  - [Testing locally](pages/06-testing-locally/README.md)
-  - [Setting the title](pages/02-set-title/README.md)
-  - [Setting the agenda](pages/03-set-agenda/README.md)
-- For the SAP BTP Adoption team
-  - [Dynamic content (numbers, users, passwords)](pages/10-dynamic-content/README.md)
-  - [Deployment](pages/11-deployment/README.md)
-- Best practices
-  - [Writing markdown](pages/20-writing-markdown/README.md)
-  - [Writing exercises](pages/21-writing-exercises/README.md)
+<h2 style="text-align: center;"># Day 1 #</h2>
+
+---
+
+* [Introduction](/)
+* [Exercise 0 - Getting Started - Preparation](/01-Requirements.md)
+* [Exercise 2 - Create Action Project](/02-Create-Action-Project.md)
+* [Exercise 3 - Create Process Automation Workflow](/03-Create-Process-Automation-Workflow.md)
+* [Exercise 4 - Integrate Forms with SAP Build Work Zone](/04-Integrate-Forms-with-SAP-Build-Work-Zone.md)
+* [Exercise 5 - Set Up an API Trigger](/05-Set-Up-an-API-Trigger.md)
+* [Exercise 6 - Next Steps](/06-Next-Steps.md)
+---
+<br>
+<br>
+
+<h2 style="text-align: center;"># Day 2 #</h2>
+
+---
+
+
+
+
+
+
+
+<br>
+<br>
+
+---
+
+<h2 style="text-align: center;"># Day 3 #</h2>
+
+---
+
+
+
+
+
+
+
+<br>
+<br>
+
+---
 - Downloads:
   - [Exercises in PDF](_assets/files/exercises.pdf ':ignore :target=_self')
